@@ -1,16 +1,24 @@
 import React from "react";
-import './style.css';
+import "./style.css";
 import ListElement from "../ListElement";
 
-const List = ({title, elements, completed}) => {
-    return (
-        <div>
-            <h3>{title}</h3>
-            {elements.map(element =>{
-            return <ListElement taskName={element} completed={completed}/> 
-        })}
-        </div>
-    )
-}
+const List = ({ title, elements, completed, completeTask, deleteTask }) => {
+  return (
+    <div>
+      <h3>{title}</h3>
+      {elements.map((element, index) => {
+        return (
+          <ListElement
+            key={`${element}${index}`}
+            taskName={element}
+            completed={completed}
+            completeTask={completeTask}
+            deleteTask={deleteTask}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 export default List;
